@@ -25,9 +25,12 @@ jobs:
       # Verify tools
       - name: Verify Java version
         run: java -version
+      # Install Maven
+      - name: Set up Maven
+        uses: apache-maven/setup-maven@v2
       - name: Verify Maven version
         run: mvn -version
-      # TODO: Build application with Maven
+      # Build application with Maven
       - name: Build with Maven
         run: mvn clean package
       # Upload artifacts
