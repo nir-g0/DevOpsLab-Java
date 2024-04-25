@@ -29,7 +29,6 @@ jobs:
         run: mvn -version
       # TODO: Build application with Maven
       - name: Build with Maven
-        run: echo '🛠️ build me please 🛠️'
         run: mvn clean package
       # Upload artifacts
       - name: Archive
