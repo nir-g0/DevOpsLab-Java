@@ -67,6 +67,7 @@ public class NameCheckerTest {
         assertFalse(NameChecker.check("-John"));
     }
 
+    @Test
     public void testInvalidNameWithFirstCharacterApostrophe() {
         assertFalse(NameChecker.check("'John"));
     }

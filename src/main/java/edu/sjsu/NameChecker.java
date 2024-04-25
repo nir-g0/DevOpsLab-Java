@@ -20,12 +20,10 @@ public class NameChecker {
         char[] chars = input.toCharArray();
         int singleQuoteCount = 0;
 
-        if (!Character.isLetter(chars[0]) && chars[0] != '\'') {
+        if (chars[0] == '\'' || chars[0] == '-') {
             return false;
         }
-        if (chars[0] == '\'') {
-            singleQuoteCount++;
-        }
+
         for (int i = 1; i < chars.length; i++) {
             char c = chars[i];
             if (c == '\'') {
