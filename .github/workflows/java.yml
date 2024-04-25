@@ -1,1 +1,39 @@
-Test
+# Name of the workflow
+name: DevOps Lab - Java
+
+# Specifies what triggers the workflow
+on: [push]
+
+# Jobs to run in the workflow
+jobs:
+  # First job to run in the workflow
+  build:
+    # Define the type of machine for the job to run on
+    runs-on: ubuntu-latest
+    # Sequence of steps to run
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Setup environment
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+      # Verify tools
+      - name: Verify Java version
+        run: java -version
+      - name: Verify Maven version
+        run: mvn -version
+      # TODO: Build application with Maven
+      - name: Build with Maven
+        run: echo '🛠️ build me please 🛠️'
+        run: mvn clean package
+      # Upload artifacts
+      - name: Archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: JAR
+          path: target/*.jar
